@@ -4,7 +4,6 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const config = require("./config");
 const testRoute = require("./routes/test-route");
-// const db = require("./db");
 const signUp = require("./routes/signup");
 
 const app = express();

@@ -19,6 +19,7 @@ const {
 
 assert(PORT, "PORT is required");
 // assert(HOST, "HOST is required");
+PORT = 5000;
 
 module.exports = {
   port: PORT,
