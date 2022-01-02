@@ -1,5 +1,5 @@
 const db = require("../db");
-const User = db.collection("users");
+const User = db.collection("test1");
 
 const getAllUsers = async function (req, res) {
   const users = await User.get();

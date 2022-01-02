@@ -4,9 +4,7 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const config = require("./config");
 const testRoute = require("./routes/test-route");
-const db = require("./db")
-const firebase = require("firebase")
-const signUp = require("./routes/signup")
+const signUp = require("./routes/signup");
 
 const app = express();
 
@@ -16,7 +14,7 @@ app.use(bodyParser.json());
 
 app.use("/api", testRoute.routes);
 
-app.post('/register',signUp);
+app.use("/test", signUp.routes);
 
 app.listen(config.port || process.env.PORT, () =>
   console.log("App is listening on url http://localhost:" + config.port)
