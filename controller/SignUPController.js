@@ -3,6 +3,24 @@ const User = db.collection("users");
 const firebase = require('firebase');
 const { validateSignUPData } = require("../helper");
 
+const register = async function (req, res) {
+  const { firstName, lastName, email, password } = req.body;
+  getAuth()
+    .createUser({
+      email: email,
+      emailVerified: false,
+      password: password,
+      displayName: `${firstName} ${lastName}`,
+      disabled: false,
+    })
+    .then((userRecord) => {
+      // See the UserRecord reference doc for the contents of userRecord.
+      console.log("Successfully created new user:", userRecord);
+    })
+    .catch((error) => {
+      console.log("Error creating new user:", error);
+    });
+};
 const signUp = (req, res) => {
     const newUser = {
         email: req.body.email,
