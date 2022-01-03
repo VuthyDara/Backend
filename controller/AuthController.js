@@ -12,12 +12,12 @@ const login = async function (req, res) {
     .then((userCredential) => {
       // Signed in
       var user = userCredential.user;
-      res.json({login: user});
+      res.json({ message: true, token: user.stsTokenManager.accessToken});
     })
     .catch((error) => {
       var errorCode = error.code;
       var errorMessage = error.message;
-      res.json({ Login: errorMessage });
+      res.json({ message: false, token: null });
     });
 };
 
